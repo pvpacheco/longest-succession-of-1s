@@ -20,9 +20,8 @@
   },
   "homepage": "https://github.com/pvpacheco/longest-succession-of-1s#readme",
   "dependencies": {
-    "commander": "^2.14.1"
-  },
-  "devDependencies": {
+    "commander": "^2.14.1",
     "jest": "^22.4.0"
-  }
+  },
+  "devDependencies": {}
 }
