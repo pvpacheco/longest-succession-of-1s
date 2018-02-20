@@ -24,35 +24,35 @@ function longest(sequence) {
   ) return 'not a valid sequence, please try again';
 
   // Main algoritm
-  const sequenceArray = sequence.trim().split(',');
-  const sequenceLength = sequenceArray.length;
-
-  let zeroIndexes = [];
-  let highestDiff = 0;
-  let lastDiff = 0;
+  const SEQUENCE_ARRAY = sequence.trim().split(',');
+  const SEQUENCE_LEN = SEQUENCE_ARRAY.length;
+  let maxDiff = 0;
   let maxIndex = 0;
+  let lastDiff = 0;
+  let lastIndex = -1;
 
-  sequenceArray.forEach((elem, i) => {
+  // Traversing sequence
+  SEQUENCE_ARRAY.forEach((elem, i) => {
+
+    // If found a zero, calculates de difference between this and the last one;
     if (elem === '0') {
-      zeroIndexes.push(i);
+      lastDiff = i - lastIndex;
+      lastIndex = i;
 
-      lastDiff = (zeroIndexes.length > 1)
-          ? (zeroIndexes[zeroIndexes.length-1] - zeroIndexes[zeroIndexes.length-2])
-          : zeroIndexes[zeroIndexes.length-1];
-
-      if (lastDiff > highestDiff) {
-        highestDiff = lastDiff;
-        maxIndex = zeroIndexes[zeroIndexes.length-1];
+      // Is the current diference higher than the last one? If so, store this zero-index
+      if (lastDiff > maxDiff) {
+        maxDiff = lastDiff;
+        maxIndex = lastIndex;
       }
     }
 
     // Edge case (higher number of 1s at the edge of the sequence)
-    if (i == (sequenceLength-1)) {
-      lastDiff = sequenceLength - zeroIndexes[zeroIndexes.length-1];
+    if (i == (SEQUENCE_LEN-1)) {
+      lastDiff = SEQUENCE_LEN - lastIndex;
 
-      if (lastDiff > highestDiff) {
-        highestDiff = lastDiff;
-        maxIndex = zeroIndexes[zeroIndexes.length-1];
+      if (lastDiff > maxDiff) {
+        maxDiff = lastDiff;
+        maxIndex = lastIndex;
       }
     }
   });
