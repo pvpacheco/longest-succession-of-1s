@@ -27,37 +27,37 @@ function longest(sequence) {
   const sequenceArray = sequence.trim().split(',');
   const sequenceLength = sequenceArray.length;
 
-  let zeros = [];
-  let highestRange = 0;
-  let lastRange = 0;
-  let finalZeroIndex = 0;
+  let zeroIndexes = [];
+  let highestDiff = 0;
+  let lastDiff = 0;
+  let maxIndex = 0;
 
   sequenceArray.forEach((elem, i) => {
     if (elem === '0') {
-      zeros.push(i);
+      zeroIndexes.push(i);
 
-      lastRange = (zeros.length > 1)
-          ? (zeros[zeros.length-1] - zeros[zeros.length-2])
-          : zeros[zeros.length-1];
+      lastDiff = (zeroIndexes.length > 1)
+          ? (zeroIndexes[zeroIndexes.length-1] - zeroIndexes[zeroIndexes.length-2])
+          : zeroIndexes[zeroIndexes.length-1];
 
-      if (lastRange > highestRange) {
-        highestRange = lastRange;
-        finalZeroIndex = zeros[zeros.length-1];
+      if (lastDiff > highestDiff) {
+        highestDiff = lastDiff;
+        maxIndex = zeroIndexes[zeroIndexes.length-1];
       }
     }
 
-    // Edge case (higher number of 1s at the edge of the array)
+    // Edge case (higher number of 1s at the edge of the sequence)
     if (i == (sequenceLength-1)) {
-      lastRange = sequenceLength - zeros[zeros.length-1];
+      lastDiff = sequenceLength - zeroIndexes[zeroIndexes.length-1];
 
-      if (lastRange > highestRange) {
-        highestRange = lastRange;
-        finalZeroIndex = zeros[zeros.length-1];
+      if (lastDiff > highestDiff) {
+        highestDiff = lastDiff;
+        maxIndex = zeroIndexes[zeroIndexes.length-1];
       }
     }
   });
 
-  return `index ${finalZeroIndex}`;
+  return `index ${maxIndex}`;
 }
 
 module.exports = longest;

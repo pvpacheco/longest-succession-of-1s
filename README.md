@@ -23,3 +23,8 @@ index 9
 $ Longest 1,0,1,1,0,1,1,1,1
 index 4
 ```
+
+## Running tests
+```
+$ npm test
+```

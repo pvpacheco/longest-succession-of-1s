@@ -16,15 +16,3 @@ index 9
 $ Longest 1,0,1,1,0,1,1,1,1
 index 4
 ```
-
-## Deliverable
-We expect you to deliver a zip file containing the code that implements the solution for this problem.
-Plese provide clear instructions on how to build the application.
-
-## Programming languages
-We accept solutions implemented in one of the following programming languages:
-* C#
-* Java
-* Kotlin
-* Javascript
-* Python
