@@ -1,0 +1,28 @@
+{
+  "name": "longest-succession-of-1s",
+  "version": "0.0.1",
+  "description": "Given an array of 0s and 1s, it finds the position of 0 to be replaced with 1 to get longest continuous sequence of 1s.",
+  "main": "index.js",
+  "bin": {
+    "Longest": "./index.js"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pvpacheco/longest-succession-of-1s.git"
+  },
+  "author": "Paulo Pacheco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pvpacheco/longest-succession-of-1s/issues"
+  },
+  "homepage": "https://github.com/pvpacheco/longest-succession-of-1s#readme",
+  "dependencies": {
+    "commander": "^2.14.1"
+  },
+  "devDependencies": {
+    "jest": "^22.4.0"
+  }
+}
